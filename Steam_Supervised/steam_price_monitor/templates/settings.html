@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="panel">
+  <div class="panel-heading">
+    <div>
+      <p class="eyebrow">System Settings</p>
+      <h2>调度与提醒配置</h2>
+    </div>
+  </div>
+  <form class="form-grid" method="post" action="/settings">
+    <label>刷新间隔（分钟）<input type="number" name="refresh_interval_minutes" value="{{ settings.refresh_interval_minutes }}" min="15" max="1440"></label>
+    <label>每日全量同步小时<input type="number" name="full_sync_hour" value="{{ settings.full_sync_hour }}" min="0" max="23"></label>
+    <label>提醒邮箱<input type="email" name="notification_email" value="{{ settings.notification_email }}"></label>
+    <label>SMTP Host<input type="text" name="smtp_host" value="{{ settings.smtp_host }}"></label>
+    <label>SMTP Port<input type="number" name="smtp_port" value="{{ settings.smtp_port }}"></label>
+    <label>SMTP 用户名<input type="text" name="smtp_username" value="{{ settings.smtp_username }}"></label>
+    <label>SMTP 密码<input type="password" name="smtp_password" value="{{ settings.smtp_password }}"></label>
+    <label>发件人<input type="email" name="smtp_sender" value="{{ settings.smtp_sender }}"></label>
+    <label class="checkbox"><input type="checkbox" name="smtp_use_tls" {% if settings.smtp_use_tls %}checked{% endif %}>启用 TLS</label>
+    <label class="checkbox"><input type="checkbox" name="smtp_use_ssl" {% if settings.smtp_use_ssl %}checked{% endif %}>直接使用 SSL</label>
+    <label class="checkbox"><input type="checkbox" name="xiaoheihe_enabled" {% if settings.xiaoheihe_enabled %}checked{% endif %}>启用小黑盒补充源</label>
+    <button class="primary-button" type="submit">保存设置并重载调度</button>
+  </form>
+</section>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="panel">
+  <div class="panel-heading">
+    <div>
+      <p class="eyebrow">Notification Center</p>
+      <h2>提醒中心</h2>
+    </div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>时间</th>
+          <th>游戏 AppID</th>
+          <th>类型</th>
+          <th>价格</th>
+          <th>状态</th>
+          <th>内容</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for alert in alerts %}
+        <tr>
+          <td>{{ alert.triggered_at }}</td>
+          <td>{{ alert.steam_appid }}</td>
+          <td>{{ alert.alert_type }}</td>
+          <td>{{ alert.price_amount or "-" }}</td>
+          <td>{{ alert.status }}</td>
+          <td>{{ alert.message }}</td>
+        </tr>
+        {% else %}
+        <tr><td colspan="6">提醒列表还是空的，等第一次命中后会出现在这里。</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endblock %}

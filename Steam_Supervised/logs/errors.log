@@ -1,0 +1,60 @@
+2026-04-04 13:21:47 - steam_price_monitor.services.refresh - ERROR - All providers failed for appid 5000: Provider steam failed for appid 5000: steam temporarily unavailable
+2026-04-04 13:21:47 - steam_price_monitor.services.refresh - ERROR - All providers failed for appid 5000: Provider steam failed for appid 5000: steam temporarily unavailable
+2026-04-04 13:21:47 - steam_price_monitor.services.refresh - ERROR - All providers failed for appid 5000: Provider steam failed for appid 5000: steam temporarily unavailable
+2026-04-04 13:21:47 - steam_price_monitor.services.refresh - ERROR - All providers failed for appid 5000: Provider steam failed for appid 5000: steam temporarily unavailable
+2026-04-04 13:21:47 - steam_price_monitor.services.refresh - ERROR - All providers failed for appid 5000: Provider steam failed for appid 5000: steam temporarily unavailable
+2026-04-04 13:21:47 - steam_price_monitor.services.refresh - ERROR - All providers failed for appid 5000: Provider steam failed for appid 5000: steam temporarily unavailable
+2026-04-04 13:21:47 - steam_price_monitor.services.refresh - ERROR - All providers failed for appid 5000: Provider steam failed for appid 5000: steam temporarily unavailable
+2026-04-04 13:21:47 - steam_price_monitor.services.refresh - ERROR - All providers failed for appid 5000: Provider steam failed for appid 5000: steam temporarily unavailable
+2026-04-04 13:21:47 - steam_price_monitor.services.refresh - ERROR - All providers failed for appid 5000: Provider steam failed for appid 5000: steam temporarily unavailable
+2026-04-04 13:21:47 - steam_price_monitor.services.refresh - ERROR - All providers failed for appid 5000: Provider steam failed for appid 5000: steam temporarily unavailable
+2026-04-04 13:22:04 - steam_price_monitor.services.refresh - ERROR - All providers failed for appid 5000: Provider steam failed for appid 5000: steam temporarily unavailable
+2026-04-04 13:22:04 - steam_price_monitor.services.refresh - ERROR - All providers failed for appid 5000: Provider steam failed for appid 5000: steam temporarily unavailable
+2026-04-04 13:22:04 - steam_price_monitor.services.refresh - ERROR - All providers failed for appid 5000: Provider steam failed for appid 5000: steam temporarily unavailable
+2026-04-04 13:22:04 - steam_price_monitor.services.refresh - ERROR - All providers failed for appid 5000: Provider steam failed for appid 5000: steam temporarily unavailable
+2026-04-04 13:22:04 - steam_price_monitor.services.refresh - ERROR - All providers failed for appid 5000: Provider steam failed for appid 5000: steam temporarily unavailable
+2026-04-04 13:22:04 - steam_price_monitor.services.refresh - ERROR - All providers failed for appid 5000: Provider steam failed for appid 5000: steam temporarily unavailable
+2026-04-04 13:22:04 - steam_price_monitor.services.refresh - ERROR - All providers failed for appid 5000: Provider steam failed for appid 5000: steam temporarily unavailable
+2026-04-04 13:22:04 - steam_price_monitor.services.refresh - ERROR - All providers failed for appid 5000: Provider steam failed for appid 5000: steam temporarily unavailable
+2026-04-04 13:22:04 - steam_price_monitor.services.refresh - ERROR - All providers failed for appid 5000: Provider steam failed for appid 5000: steam temporarily unavailable
+2026-04-04 13:22:04 - steam_price_monitor.services.refresh - ERROR - All providers failed for appid 5000: Provider steam failed for appid 5000: steam temporarily unavailable
+2026-04-04 14:10:12 - steam_price_monitor.services.refresh - ERROR - All providers failed for appid 5000: Provider steam failed for appid 5000: steam temporarily unavailable
+2026-04-04 14:10:12 - steam_price_monitor.services.refresh - ERROR - All providers failed for appid 5000: Provider steam failed for appid 5000: steam temporarily unavailable
+2026-04-04 14:10:12 - steam_price_monitor.services.refresh - ERROR - All providers failed for appid 5000: Provider steam failed for appid 5000: steam temporarily unavailable
+2026-04-04 14:10:12 - steam_price_monitor.services.refresh - ERROR - All providers failed for appid 5000: Provider steam failed for appid 5000: steam temporarily unavailable
+2026-04-04 14:10:12 - steam_price_monitor.services.refresh - ERROR - All providers failed for appid 5000: Provider steam failed for appid 5000: steam temporarily unavailable
+2026-04-04 14:10:12 - steam_price_monitor.services.refresh - ERROR - All providers failed for appid 5000: Provider steam failed for appid 5000: steam temporarily unavailable
+2026-04-04 14:10:12 - steam_price_monitor.services.refresh - ERROR - All providers failed for appid 5000: Provider steam failed for appid 5000: steam temporarily unavailable
+2026-04-04 14:10:12 - steam_price_monitor.services.refresh - ERROR - All providers failed for appid 5000: Provider steam failed for appid 5000: steam temporarily unavailable
+2026-04-04 14:10:12 - steam_price_monitor.services.refresh - ERROR - All providers failed for appid 5000: Provider steam failed for appid 5000: steam temporarily unavailable
+2026-04-04 14:10:12 - steam_price_monitor.services.refresh - ERROR - All providers failed for appid 5000: Provider steam failed for appid 5000: steam temporarily unavailable
+2026-04-04 14:17:00 - steam_price_monitor.services.refresh - ERROR - All providers failed for appid 5000: Provider steam failed for appid 5000: steam temporarily unavailable
+2026-04-04 17:25:39 - steam_price_monitor.services.refresh - ERROR - All providers failed for appid 5000: Provider steam failed for appid 5000: steam temporarily unavailable
+2026-04-04 17:38:01 - steam_price_monitor.services.refresh - ERROR - All providers failed for appid 5000: Provider steam failed for appid 5000: steam temporarily unavailable
+2026-04-04 18:14:51 - steam_price_monitor.providers.steam - ERROR - Unexpected error fetching Steam appid 582010: unknown encoding: idna
+2026-04-04 18:14:51 - steam_price_monitor.services.refresh - ERROR - Failed to refresh watch item 582010
+Traceback (most recent call last):
+  File "D:\Coding\PyFlies\Steam_Supervised\steam_price_monitor\services\refresh.py", line 185, in refresh_all
+    decision = self.refresh_watch_item(session, watch_item, notifier)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Coding\PyFlies\Steam_Supervised\steam_price_monitor\services\refresh.py", line 147, in refresh_watch_item
+    raise RefreshUnavailableError(error_msg)
+steam_price_monitor.services.refresh.RefreshUnavailableError: No provider returned fresh data for appid 582010
+2026-04-04 18:14:51 - steam_price_monitor.providers.steam - ERROR - Unexpected error fetching Steam appid 2379780: unknown encoding: idna
+2026-04-04 18:14:51 - steam_price_monitor.services.refresh - ERROR - Failed to refresh watch item 2379780
+Traceback (most recent call last):
+  File "D:\Coding\PyFlies\Steam_Supervised\steam_price_monitor\services\refresh.py", line 185, in refresh_all
+    decision = self.refresh_watch_item(session, watch_item, notifier)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Coding\PyFlies\Steam_Supervised\steam_price_monitor\services\refresh.py", line 147, in refresh_watch_item
+    raise RefreshUnavailableError(error_msg)
+steam_price_monitor.services.refresh.RefreshUnavailableError: No provider returned fresh data for appid 2379780
+2026-04-04 18:14:52 - steam_price_monitor.providers.steam - ERROR - Unexpected error fetching Steam appid 264710: unknown encoding: idna
+2026-04-04 18:14:52 - steam_price_monitor.services.refresh - ERROR - Failed to refresh watch item 264710
+Traceback (most recent call last):
+  File "D:\Coding\PyFlies\Steam_Supervised\steam_price_monitor\services\refresh.py", line 185, in refresh_all
+    decision = self.refresh_watch_item(session, watch_item, notifier)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Coding\PyFlies\Steam_Supervised\steam_price_monitor\services\refresh.py", line 147, in refresh_watch_item
+    raise RefreshUnavailableError(error_msg)
+steam_price_monitor.services.refresh.RefreshUnavailableError: No provider returned fresh data for appid 264710

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title or "Steam Price Monitor" }}</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div>
+      <p class="eyebrow">Steam Price Monitor</p>
+      <h1>游戏价格监测与提醒系统</h1>
+    </div>
+    <nav>
+      <a href="/watch-items/dashboard">关注单</a>
+      <a href="/alerts/page">提醒中心</a>
+      <a href="/settings">系统设置</a>
+    </nav>
+  </header>
+  <main class="page-shell">
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

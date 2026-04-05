@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="panel">
+  <div class="panel-heading">
+    <div>
+      <p class="eyebrow">Watchlist</p>
+      <h2>关注单</h2>
+    </div>
+  </div>
+  <form class="form-grid" method="post" action="/watch-items/form">
+    <label>Steam AppID<input type="number" name="steam_appid" required></label>
+    <label>游戏标题<input type="text" name="title" placeholder="可选，首次可手填"></label>
+    <label>目标价<input type="number" step="0.01" name="target_price" placeholder="如 68"></label>
+    <label>优先级<input type="number" name="priority" value="5" min="1" max="10"></label>
+    <label>版本标签<input type="text" name="edition_label" value="Standard"></label>
+    <label>价值系数<input type="number" step="0.01" name="value_score" value="1.00"></label>
+    <label>归属基础版 AppID<input type="number" name="base_game_appid" placeholder="多版本比价时可填"></label>
+    <label class="checkbox"><input type="checkbox" name="enabled" checked>启用提醒</label>
+    <label class="checkbox"><input type="checkbox" name="include_downloadable_content">包含 DLC</label>
+    <button class="primary-button" type="submit">加入关注并立即刷新</button>
+  </form>
+</section>
+
+<section class="panel">
+  <div class="panel-heading">
+    <div>
+      <p class="eyebrow">Live Snapshot</p>
+      <h2>当前监测结果</h2>
+    </div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>游戏</th>
+          <th>当前价</th>
+          <th>目标价</th>
+          <th>折扣</th>
+          <th>建议</th>
+          <th>最近检查</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in watch_items %}
+        <tr>
+          <td>
+            <a href="/games/{{ item.steam_appid }}/page">{{ item.title }}</a>
+            <div class="muted">{{ item.edition_label }} / AppID {{ item.steam_appid }}</div>
+          </td>
+          <td>{{ item.current_price or "-" }} {{ item.currency or "" }}</td>
+          <td>{{ item.target_price or "-" }}</td>
+          <td>{{ item.current_discount_percent or 0 }}%</td>
+          <td>
+            <span class="pill pill-{{ (item.last_decision_status or 'watch') | lower }}">{{ item.last_decision_status or "Watch" }}</span>
+            <div class="muted">{{ item.last_decision_reason or "等待首次刷新" }}</div>
+          </td>
+          <td>{{ item.last_checked_at or "-" }}</td>
+        </tr>
+        {% else %}
+        <tr><td colspan="6">还没有关注的游戏，先添加一个试试。</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endblock %}

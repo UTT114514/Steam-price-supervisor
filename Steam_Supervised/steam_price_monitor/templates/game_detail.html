@@ -1,0 +1,146 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero-card">
+  <div>
+    <p class="eyebrow">Game Detail</p>
+    <h2>{{ game.title }}</h2>
+    <p class="muted">AppID {{ game.steam_appid }} · {{ game.edition_label }}</p>
+    <p class="decision-line">
+      <span class="pill pill-{{ game.decision.status | lower }}">{{ game.decision.status }}</span>
+      {{ game.decision.reason }}
+    </p>
+  </div>
+  {% if game.capsule_url %}
+  <img class="cover" src="{{ game.capsule_url }}" alt="{{ game.title }}">
+  {% endif %}
+</section>
+
+<section class="panel stats-grid">
+  <div class="stat-card">
+    <span>当前价</span>
+    <strong>{{ game.decision.current_price or "-" }} {{ game.decision.currency or "" }}</strong>
+  </div>
+  <div class="stat-card">
+    <span>90 天低价</span>
+    <strong>{{ game.decision.historical_low_90d or "-" }}</strong>
+  </div>
+  <div class="stat-card">
+    <span>180 天低价</span>
+    <strong>{{ game.decision.historical_low_180d or "-" }}</strong>
+  </div>
+  <div class="stat-card">
+    <span>推荐购买项</span>
+    <strong>{{ game.decision.recommended_purchase_title or game.title }}</strong>
+  </div>
+</section>
+
+<section class="panel">
+  <div class="panel-heading">
+    <div>
+      <p class="eyebrow">History</p>
+      <h2>价格轨迹</h2>
+    </div>
+  </div>
+  {% if chart_points %}
+  <svg class="chart" viewBox="0 0 400 200" role="img" aria-label="price history">
+    <polyline fill="none" stroke="currentColor" stroke-width="4" points="{{ chart_points }}"></polyline>
+  </svg>
+  {% else %}
+  <p class="muted">暂无足够的历史数据。</p>
+  {% endif %}
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>时间</th>
+          <th>来源</th>
+          <th>价格</th>
+          <th>折扣</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for point in game.price_history %}
+        <tr>
+          <td>{{ point.observed_at }}</td>
+          <td>{{ point.source_name }}</td>
+          <td>{{ point.current_price or "-" }}</td>
+          <td>{{ point.discount_percent }}%</td>
+        </tr>
+        {% else %}
+        <tr><td colspan="4">暂无历史记录。</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="panel">
+  <div class="panel-heading">
+    <div>
+      <p class="eyebrow">Alternatives</p>
+      <h2>多版本最优选择</h2>
+    </div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>版本</th>
+          <th>当前价</th>
+          <th>90 天低价</th>
+          <th>180 天低价</th>
+          <th>价值系数</th>
+          <th>归一化价格</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for alternative in game.decision.alternatives %}
+        <tr>
+          <td>{{ alternative.title }}<div class="muted">{{ alternative.edition_label }}</div></td>
+          <td>{{ alternative.current_price or "-" }}</td>
+          <td>{{ alternative.historical_low_90d or "-" }}</td>
+          <td>{{ alternative.historical_low_180d or "-" }}</td>
+          <td>{{ alternative.value_score }}</td>
+          <td>{{ alternative.normalized_price or "-" }}</td>
+        </tr>
+        {% else %}
+        <tr><td colspan="6">暂无可比较的版本。</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="panel">
+  <div class="panel-heading">
+    <div>
+      <p class="eyebrow">Alerts</p>
+      <h2>最近提醒</h2>
+    </div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>时间</th>
+          <th>类型</th>
+          <th>状态</th>
+          <th>内容</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for alert in game.alerts %}
+        <tr>
+          <td>{{ alert.triggered_at }}</td>
+          <td>{{ alert.alert_type }}</td>
+          <td>{{ alert.status }}</td>
+          <td>{{ alert.message }}</td>
+        </tr>
+        {% else %}
+        <tr><td colspan="4">暂无提醒记录。</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endblock %}
