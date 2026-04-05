@@ -1,2 +1,2 @@
-# money
+# Steam Price Supervisor
 检测steam游戏价格波动，从而方便使用者用便宜的价格购买游戏
